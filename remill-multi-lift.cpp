@@ -111,46 +111,50 @@ class SimpleTraceManager : public remill::TraceManager {
 
 int main(int argc, char *argv[])
 {
-    std::ifstream inputFile(argv[1]);
-    std::vector<std::string> instructions = extract_instructions(inputFile); 
+  //get input js file and extract instructions
+  std::ifstream inputFile(argv[1]);
+  std::vector<std::string> instructions = extract_instructions(inputFile); 
+  
+  //set up module
+  llvm::LLVMContext context;
+  auto arch = remill::Arch::Get(context, REMILL_OS, REMILL_ARCH);
+  std::unique_ptr<llvm::Module> module(remill::LoadArchSemantics(arch.get()));
+
+  //set up destination module
+  llvm::Module dest_module("lifted_code", context);
+  arch->PrepareModuleDataLayout(&dest_module);
+
+  std::string currentline;
+
+  for(int i = 0; i < (int)instructions.size(); i++)
+  {
+    //remove any whitespace from current instruction
+    currentline = instructions[0];
+    currentline = instructions[0].substr(0, currentline.find(" "));
     
-    llvm::LLVMContext context;
-    auto arch = remill::Arch::Get(context, REMILL_OS, REMILL_ARCH);
+    //lift instruction
+    Memory memory = UnhexlifyInputBytes(currentline);
+    SimpleTraceManager manager(memory);
+    remill::IntrinsicTable intrinsics(module.get());
+    auto inst_lifter = arch->DefaultLifter(intrinsics);
+    remill::Instruction I;
+    remill::TraceLifter trace_lifter(arch.get(), manager);
+    trace_lifter.Lift(0);
 
-    std::unique_ptr<llvm::Module> module(remill::LoadArchSemantics(arch.get()));
+    //optimize module
+    remill::OptimizationGuide guide = {};
+    remill::OptimizeModule(arch, module, manager.traces, guide);
 
-
-    std::string currentline;
-    llvm::Module dest_module("lifted_code", context);
-    arch->PrepareModuleDataLayout(&dest_module);
-
-    for(int i = 0; i < (int)instructions.size(); i++)
-    {
-        currentline = instructions[0];
-        currentline = instructions[0].substr(0, currentline.find(" "));
-
-        if(currentline[currentline.length() -1] == '\r' || currentline[currentline.length() -1] == '\n')
-        {
-            currentline.pop_back();
-        }
-        Memory memory = UnhexlifyInputBytes(currentline);
-        SimpleTraceManager manager(memory);
-        remill::IntrinsicTable intrinsics(module.get());
-        auto inst_lifter = arch->DefaultLifter(intrinsics);
-        remill::Instruction I;
-        remill::TraceLifter trace_lifter(arch.get(), manager);
-        trace_lifter.Lift(0);
-
-        remill::OptimizationGuide guide = {};
-        remill::OptimizeModule(arch, module, manager.traces, guide);
-
-        for (auto &lifted_entry : manager.traces) {
-            remill::MoveFunctionIntoModule(lifted_entry.second, &dest_module);
-        }
-        
+    //place lifted function in destination module
+    for (auto &lifted_entry : manager.traces) {
+      remill::MoveFunctionIntoModule(lifted_entry.second, &dest_module);
     }
-    llvm::outs() << dest_module;
-    return 0;
+      
+  }
+  
+  //send destination module to default output
+  llvm::outs() << dest_module;
+  return 0;
 }
 
 
