@@ -7,6 +7,12 @@
 #include <glog/logging.h>
 #include <gflags/gflags.h>
 
+#include <llvm-c/Core.h>
+#include <llvm-c/ExecutionEngine.h>
+#include <llvm-c/Target.h>
+#include <llvm-c/Analysis.h>
+#include <llvm-c/BitWriter.h>
+
 #include <algorithm>
 #include <cstdint>
 #include <fstream>
@@ -137,7 +143,6 @@ int main(int argc, char *argv[])
     SimpleTraceManager manager(memory);
     remill::IntrinsicTable intrinsics(module.get());
     auto inst_lifter = arch->DefaultLifter(intrinsics);
-    remill::Instruction I;
     remill::TraceLifter trace_lifter(arch.get(), manager);
     trace_lifter.Lift(0);
 
@@ -152,6 +157,61 @@ int main(int argc, char *argv[])
       
   }
   
+  //create main function type
+  llvm::FunctionType *funcType = llvm::FunctionType::get(
+    llvm::Type::getInt32Ty(context), // Return type
+    dest_module.getFunction("sub_0")->getFunctionType()->params(),
+    false                           // Variadic argument
+  );
+
+  //create main function
+  llvm::Function *mainFunc = llvm::Function::Create(
+    funcType,
+    llvm::Function::ExternalLinkage,
+    "main",
+    dest_module
+  );
+  
+  //put main function into module
+  llvm::BasicBlock *entryBlock = llvm::BasicBlock::Create(context, "entry", mainFunc);
+  llvm::IRBuilder<> builder(entryBlock);
+    
+  llvm::Function* currentFunction;
+
+  //get function arguments
+  std::vector<llvm::Value*> ArgsV;
+  for(auto argumentIterator = mainFunc->arg_begin(); argumentIterator != mainFunc->arg_end(); argumentIterator++)
+  {
+    ArgsV.push_back(argumentIterator);
+  }
+  llvm::ArrayRef<llvm::Value*> args = ArgsV;
+
+  //add function calls
+  for(int i = 0; i < (int)instructions.size(); i++)
+  {
+    //determine function name
+    std::string functionName;
+    if(i == 0)
+    {
+      functionName = "sub_0";
+    }
+    else
+    {
+      functionName = "sub_0." + std::to_string(i);
+      
+    }
+    currentFunction = dest_module.getFunction(functionName);
+
+    //make sure function actuall exists
+    if(currentFunction !=  NULL)
+    {
+      //create call
+      builder.CreateCall(currentFunction, args, llvm::Twine(functionName)); 
+    }
+  }
+  //add return
+  builder.CreateRet(llvm::ConstantInt::get(context, llvm::APInt(32, 0)));
+
   //send destination module to default output
   llvm::outs() << dest_module;
   return 0;
