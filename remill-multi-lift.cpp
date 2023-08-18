@@ -135,8 +135,8 @@ int main(int argc, char *argv[])
   for(int i = 0; i < (int)instructions.size(); i++)
   {
     //remove any whitespace from current instruction
-    currentline = instructions[0];
-    currentline = instructions[0].substr(0, currentline.find(" "));
+    currentline = instructions[i];
+    currentline = instructions[i].substr(0, currentline.find(" "));
     
     //lift instruction
     Memory memory = UnhexlifyInputBytes(currentline);
