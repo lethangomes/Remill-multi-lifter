@@ -29,8 +29,9 @@ vector<string> extract_instructions(ifstream& inputFile)
             if(currentLine.substr(0,2) == "0x")
             {
                 //cut out the relevant instructions
-                out.push_back(currentLine.substr(22, currentLine.find(" "))+ "\r");
-                outFile << currentLine.substr(22, currentLine.find(" "))+ "\r";
+                currentLine = currentLine.substr(22);
+                out.push_back(currentLine.substr(0, currentLine.find(" "))+ " \r");
+                outFile << currentLine.substr(0, currentLine.find(" "))+ " \r";
             }
             else
             {
