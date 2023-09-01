@@ -46,7 +46,7 @@ static Memory UnhexlifyInputBytes(std::string bytes) {
     auto byte_val = strtol(nibbles, &parsed_to, 16);
 
     if (parsed_to != &(nibbles[2])) {
-      std::cerr << "Invalid hex byte value '" << nibbles
+      std::cerr << "Invalid hex byte value '" << (int)nibbles[0]
                 << "' specified in --bytes." << std::endl;
     }
 
@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
   
   //set up module
   llvm::LLVMContext context;
-  auto arch = remill::Arch::Get(context, REMILL_OS, REMILL_ARCH);
+  auto arch = remill::Arch::Get(context, REMILL_OS, "amd64");
   std::unique_ptr<llvm::Module> module(remill::LoadArchSemantics(arch.get()));
 
   //set up destination module
@@ -132,18 +132,24 @@ int main(int argc, char *argv[])
 
   std::string currentline;
 
+  int lastCount = 0;
+  std::vector<std::string> problemInstructions;
+
+  
+  remill::IntrinsicTable intrinsics(module.get());
+  remill::InstructionLifter inst_lifter(arch, intrinsics);
+
   for(int i = 0; i < (int)instructions.size(); i++)
   {
     //remove any whitespace from current instruction
-    currentline = instructions[0];
-    currentline = instructions[0].substr(0, currentline.find(" "));
+    currentline = instructions[i];
+    currentline = instructions[i].substr(0, currentline.find(" "));
+    //std::cout << currentline << std::endl;
     
     //lift instruction
     Memory memory = UnhexlifyInputBytes(currentline);
     SimpleTraceManager manager(memory);
-    remill::IntrinsicTable intrinsics(module.get());
-    auto inst_lifter = arch->DefaultLifter(intrinsics);
-    remill::TraceLifter trace_lifter(arch.get(), manager);
+    remill::TraceLifter trace_lifter(inst_lifter, manager);
     trace_lifter.Lift(0);
 
     //optimize module
@@ -154,7 +160,28 @@ int main(int argc, char *argv[])
     for (auto &lifted_entry : manager.traces) {
       remill::MoveFunctionIntoModule(lifted_entry.second, &dest_module);
     }
-      
+  
+    int count = 0;
+    for(auto argumentIterator = dest_module.begin(); argumentIterator != dest_module.end(); argumentIterator++)
+    {
+      std::string name = argumentIterator->getName().data();
+      if(name.find("sub_0") != std::string::npos)
+      {
+        //std::cout << name <<std::endl;
+        count++;
+      }
+    }
+
+    //if program doesn't generate a new function try again
+    if(lastCount == count)
+    {
+      problemInstructions.push_back(currentline);
+      //std::cout << "problem found" << std::endl;
+      i--;
+    }
+    lastCount = count;
+
+
   }
   
   //create main function type
@@ -187,7 +214,7 @@ int main(int argc, char *argv[])
   llvm::ArrayRef<llvm::Value*> args = ArgsV;
 
   //add function calls
-  for(int i = 0; i < (int)instructions.size(); i++)
+  for(int i = 0; i < (int)dest_module.getFunctionList().size(); i++)
   {
     //determine function name
     std::string functionName;

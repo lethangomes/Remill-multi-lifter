@@ -1,0 +1,256 @@
+0x872002021c5: [Code] in OldSpace
+ - map: 0x087200000db5 <Map[56](CODE_TYPE)>
+ - kind: BASELINE
+ - deoptimization_data_or_interpreter_data: 0x08720019b88d <BytecodeArray[135]>
+ - position_table: 0x087200202129 <ByteArray[63]>
+ - instruction_stream: 0x55e065ec4031 <InstructionStream BASELINE>
+ - instruction_start: 0x55e065ec4040
+ - is_turbofanned: 0
+ - stack_slots: 0
+ - marked_for_deoptimization: 0
+ - embedded_objects_cleared: 0
+ - can_have_weak_objects: 0
+ - instruction_size: 872
+ - metadata_size: 0
+ - inlined_bytecode_size: 0
+ - osr_offset: -1
+ - handler_table_offset: 0
+ - unwinding_info_offset: 0
+ - code_comments_offset: 0
+ - instruction_stream.relocation_info: 0x087200202171 <ByteArray[76]>
+ - instruction_stream.body_size: 872
+
+--- Disassembly: ---
+kind = BASELINE
+compiler = baseline
+address = 0x872002021c5
+
+Instructions (size = 872)
+0x55e065ec4040     0  bb38000000           movl rbx,0x38
+0x55e065ec4045     5  49bc8db8190072080000 REX.W movq r12,0x8720019b88d    ;; object: 0x08720019b88d <BytecodeArray[135]>
+0x55e065ec404f     f  e86c9102a0           call 0x55e005eed1c0  (BaselineOutOfLinePrologue)    ;; near builtin entry
+0x55e065ec4054    14  50                   push rax
+0x55e065ec4055    15  50                   push rax
+0x55e065ec4056    16  50                   push rax
+0x55e065ec4057    17  50                   push rax
+0x55e065ec4058    18  50                   push rax
+0x55e065ec4059    19  50                   push rax
+0x55e065ec405a    1a  48b819b8190072080000 REX.W movq rax,0x8720019b819    ;; object: 0x08720019b819 <FixedArray[3]>
+0x55e065ec4064    24  488945c0             REX.W movq [rbp-0x40],rax
+0x55e065ec4068    28  4c8b45f0             REX.W movq r8,[rbp-0x10]
+0x55e065ec406c    2c  4c8945b8             REX.W movq [rbp-0x48],r8
+0x55e065ec4070    30  488b75f8             REX.W movq rsi,[rbp-0x8]
+0x55e065ec4074    34  ff75c0               push [rbp-0x40]
+0x55e065ec4077    37  ff75b8               push [rbp-0x48]
+0x55e065ec407a    3a  b802000000           movl rax,0x2
+0x55e065ec407f    3f  498d9d705b5afd       REX.W leaq rbx,[r13-0x2a5a490]
+0x55e065ec4086    46  e8b5090ca0           call 0x55e005f84a40  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+0x55e065ec408b    4b  488b45d8             REX.W movq rax,[rbp-0x28]
+0x55e065ec408f    4f  33db                 xorl rbx,rbx
+0x55e065ec4091    51  48b95db8190072080000 REX.W movq rcx,0x8720019b85d    ;; object: 0x08720019b85d <ArrayBoilerplateDescription PACKED_SMI_ELEMENTS, 0x08720019b82d <FixedArray[10]>>
+0x55e065ec409b    5b  ba0a000000           movl rdx,0xa
+0x55e065ec40a0    60  488b75f8             REX.W movq rsi,[rbp-0x8]
+0x55e065ec40a4    64  e8d77610a0           call 0x55e005fcb780  (CreateShallowArrayLiteral)    ;; near builtin entry
+0x55e065ec40a9    69  48b9052c000072080000 REX.W movq rcx,0x87200002c05    ;; object: 0x087200002c05 <String[1]: #x>
+0x55e065ec40b3    73  bf02000000           movl rdi,0x2
+0x55e065ec40b8    78  e883a407a0           call 0x55e005f3e540  (StoreGlobalICBaseline)    ;; near builtin entry
+0x55e065ec40bd    7d  48b9f141000072080000 REX.W movq rcx,0x872000041f1    ;; object: 0x0872000041f1 <String[5]: #Array>
+0x55e065ec40c7    87  b806000000           movl rax,0x6
+0x55e065ec40cc    8c  e82f2a08a0           call 0x55e005f46b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x55e065ec40d1    91  488945c0             REX.W movq [rbp-0x40],rax
+0x55e065ec40d5    95  b814000000           movl rax,0x14
+0x55e065ec40da    9a  488945b8             REX.W movq [rbp-0x48],rax
+0x55e065ec40de    9e  488b45c0             REX.W movq rax,[rbp-0x40]
+0x55e065ec40e2    a2  488b7dc0             REX.W movq rdi,[rbp-0x40]
+0x55e065ec40e6    a6  488bd0               REX.W movq rdx,rax
+0x55e065ec40e9    a9  b802000000           movl rax,0x2
+0x55e065ec40ee    ae  bb05000000           movl rbx,0x5
+0x55e065ec40f3    b3  ff75b8               push [rbp-0x48]
+0x55e065ec40f6    b6  41ffb5f8010000       push [r13+0x1f8] (root (undefined_value))
+0x55e065ec40fd    bd  e87e4702a0           call 0x55e005ee8880  (Construct_Baseline)    ;; near builtin entry
+0x55e065ec4102    c2  48b9152c000072080000 REX.W movq rcx,0x87200002c15    ;; object: 0x087200002c15 <String[1]: #y>
+0x55e065ec410c    cc  bf0e000000           movl rdi,0xe
+0x55e065ec4111    d1  e82aa407a0           call 0x55e005f3e540  (StoreGlobalICBaseline)    ;; near builtin entry
+0x55e065ec4116    d6  33c0                 xorl rax,rax
+0x55e065ec4118    d8  48b98d54020072080000 REX.W movq rcx,0x8720002548d    ;; object: 0x08720002548d <String[5]: #count>
+0x55e065ec4122    e2  bf12000000           movl rdi,0x12
+0x55e065ec4127    e7  e814a407a0           call 0x55e005f3e540  (StoreGlobalICBaseline)    ;; near builtin entry
+0x55e065ec412c    ec  48b9052c000072080000 REX.W movq rcx,0x87200002c05    ;; object: 0x087200002c05 <String[1]: #x>
+0x55e065ec4136    f6  b818000000           movl rax,0x18
+0x55e065ec413b    fb  e8c02908a0           call 0x55e005f46b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x55e065ec4140   100  488945c0             REX.W movq [rbp-0x40],rax
+0x55e065ec4144   104  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x55e065ec4148   108  48b9310e000072080000 REX.W movq rcx,0x87200000e31    ;; object: 0x087200000e31 <String[6]: #length>
+0x55e065ec4152   112  b81c000000           movl rax,0x1c
+0x55e065ec4157   117  e8e4cd06a0           call 0x55e005f30f40  (LoadICBaseline)    ;; near builtin entry
+0x55e065ec415c   11c  ba02000000           movl rdx,0x2
+0x55e065ec4161   121  bb0b000000           movl rbx,0xb
+0x55e065ec4166   126  e8d5c908a0           call 0x55e005f50b40  (SubtractSmi_Baseline)    ;; near builtin entry
+0x55e065ec416b   12b  488945c8             REX.W movq [rbp-0x38],rax
+0x55e065ec416f   12f  498d8651020000       REX.W leaq rax,[r14+0x251]
+0x55e065ec4176   136  488945d0             REX.W movq [rbp-0x30],rax
+0x55e065ec417a   13a  33c0                 xorl rax,rax
+0x55e065ec417c   13c  488b55c8             REX.W movq rdx,[rbp-0x38]
+0x55e065ec4180   140  bb10000000           movl rbx,0x10
+0x55e065ec4185   145  e8767109a0           call 0x55e005f5b300  (GreaterThan_Baseline)    ;; near builtin entry
+0x55e065ec418a   14a  3df90d0000           cmp rax,0xdf9
+0x55e065ec418f   14f  7505                 jnz 0x55e065ec4196  <+0x156>
+0x55e065ec4191   151  e9fd010000           jmp 0x55e065ec4393  <+0x353>
+0x55e065ec4196   156  48b9152c000072080000 REX.W movq rcx,0x87200002c15    ;; object: 0x087200002c15 <String[1]: #y>
+0x55e065ec41a0   160  b822000000           movl rax,0x22
+0x55e065ec41a5   165  e8562908a0           call 0x55e005f46b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x55e065ec41aa   16a  488945c0             REX.W movq [rbp-0x40],rax
+0x55e065ec41ae   16e  48b98d54020072080000 REX.W movq rcx,0x8720002548d    ;; object: 0x08720002548d <String[5]: #count>
+0x55e065ec41b8   178  b826000000           movl rax,0x26
+0x55e065ec41bd   17d  e83e2908a0           call 0x55e005f46b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x55e065ec41c2   182  488945b8             REX.W movq [rbp-0x48],rax
+0x55e065ec41c6   186  48b9052c000072080000 REX.W movq rcx,0x87200002c05    ;; object: 0x087200002c05 <String[1]: #x>
+0x55e065ec41d0   190  b818000000           movl rax,0x18
+0x55e065ec41d5   195  e8262908a0           call 0x55e005f46b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x55e065ec41da   19a  488945b0             REX.W movq [rbp-0x50],rax
+0x55e065ec41de   19e  488b45c8             REX.W movq rax,[rbp-0x38]
+0x55e065ec41e2   1a2  488b55b0             REX.W movq rdx,[rbp-0x50]
+0x55e065ec41e6   1a6  b92a000000           movl rcx,0x2a
+0x55e065ec41eb   1ab  e8108c07a0           call 0x55e005f3ce00  (KeyedLoadICBaseline)    ;; near builtin entry
+0x55e065ec41f0   1b0  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x55e065ec41f4   1b4  488b4db8             REX.W movq rcx,[rbp-0x48]
+0x55e065ec41f8   1b8  bf2e000000           movl rdi,0x2e
+0x55e065ec41fd   1bd  e8feee07a0           call 0x55e005f43100  (KeyedStoreICBaseline)    ;; near builtin entry
+0x55e065ec4202   1c2  498d8651020000       REX.W leaq rax,[r14+0x251]
+0x55e065ec4209   1c9  488945d0             REX.W movq [rbp-0x30],rax
+0x55e065ec420d   1cd  48b9052c000072080000 REX.W movq rcx,0x87200002c05    ;; object: 0x087200002c05 <String[1]: #x>
+0x55e065ec4217   1d7  b818000000           movl rax,0x18
+0x55e065ec421c   1dc  e8df2808a0           call 0x55e005f46b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x55e065ec4221   1e1  488945c0             REX.W movq [rbp-0x40],rax
+0x55e065ec4225   1e5  488b45c8             REX.W movq rax,[rbp-0x38]
+0x55e065ec4229   1e9  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x55e065ec422d   1ed  b932000000           movl rcx,0x32
+0x55e065ec4232   1f2  e8c98b07a0           call 0x55e005f3ce00  (KeyedLoadICBaseline)    ;; near builtin entry
+0x55e065ec4237   1f7  488945c0             REX.W movq [rbp-0x40],rax
+0x55e065ec423b   1fb  b802000000           movl rax,0x2
+0x55e065ec4240   200  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x55e065ec4244   204  bb1b000000           movl rbx,0x1b
+0x55e065ec4249   209  e8325f09a0           call 0x55e005f5a180  (Equal_Baseline)    ;; near builtin entry
+0x55e065ec424e   20e  3df90d0000           cmp rax,0xdf9
+0x55e065ec4253   213  7505                 jnz 0x55e065ec425a  <+0x21a>
+0x55e065ec4255   215  e964000000           jmp 0x55e065ec42be  <+0x27e>
+0x55e065ec425a   21a  48b9152c000072080000 REX.W movq rcx,0x87200002c15    ;; object: 0x087200002c15 <String[1]: #y>
+0x55e065ec4264   224  b822000000           movl rax,0x22
+0x55e065ec4269   229  e8922808a0           call 0x55e005f46b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x55e065ec426e   22e  488945c0             REX.W movq [rbp-0x40],rax
+0x55e065ec4272   232  488b45c8             REX.W movq rax,[rbp-0x38]
+0x55e065ec4276   236  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x55e065ec427a   23a  b938000000           movl rcx,0x38
+0x55e065ec427f   23f  e87c8b07a0           call 0x55e005f3ce00  (KeyedLoadICBaseline)    ;; near builtin entry
+0x55e065ec4284   244  bb1e000000           movl rbx,0x1e
+0x55e065ec4289   249  e8f2b202a0           call 0x55e005eef580  (ToNumeric_Baseline)    ;; near builtin entry
+0x55e065ec428e   24e  488945b0             REX.W movq [rbp-0x50],rax
+0x55e065ec4292   252  bb1e000000           movl rbx,0x1e
+0x55e065ec4297   257  e8e4a609a0           call 0x55e005f5e980  (Increment_Baseline)    ;; near builtin entry
+0x55e065ec429c   25c  488945a8             REX.W movq [rbp-0x58],rax
+0x55e065ec42a0   260  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x55e065ec42a4   264  488b4dc8             REX.W movq rcx,[rbp-0x38]
+0x55e065ec42a8   268  bf3e000000           movl rdi,0x3e
+0x55e065ec42ad   26d  e84eee07a0           call 0x55e005f43100  (KeyedStoreICBaseline)    ;; near builtin entry
+0x55e065ec42b2   272  4c8b45b0             REX.W movq r8,[rbp-0x50]
+0x55e065ec42b6   276  4c8945d0             REX.W movq [rbp-0x30],r8
+0x55e065ec42ba   27a  488b45d0             REX.W movq rax,[rbp-0x30]
+0x55e065ec42be   27e  488b45c8             REX.W movq rax,[rbp-0x38]
+0x55e065ec42c2   282  bb21000000           movl rbx,0x21
+0x55e065ec42c7   287  e874a409a0           call 0x55e005f5e740  (Decrement_Baseline)    ;; near builtin entry
+0x55e065ec42cc   28c  488945c8             REX.W movq [rbp-0x38],rax
+0x55e065ec42d0   290  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x55e065ec42d4   294  458a480c             movb r9l,[r8+0xc]
+0x55e065ec42d8   298  4180f900             cmpb r9l,0x0
+0x55e065ec42dc   29c  7731                 ja 0x55e065ec430f  <+0x2cf>
+0x55e065ec42de   29e  4c8b45f0             REX.W movq r8,[rbp-0x10]
+0x55e065ec42e2   2a2  458b4017             movl r8,[r8+0x17]
+0x55e065ec42e6   2a6  4383440607b1         addl [r14+r8*1+0x7],0xb1
+0x55e065ec42ec   2ac  0f8d88feffff         jge 0x55e065ec417a  <+0x13a>
+0x55e065ec42f2   2b2  488b75f8             REX.W movq rsi,[rbp-0x8]
+0x55e065ec42f6   2b6  ff75f0               push [rbp-0x10]
+0x55e065ec42f9   2b9  b801000000           movl rax,0x1
+0x55e065ec42fe   2be  498d9d80dc56fd       REX.W leaq rbx,[r13-0x2a92380]
+0x55e065ec4305   2c5  e836070ca0           call 0x55e005f84a40  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+0x55e065ec430a   2ca  e96bfeffff           jmp 0x55e065ec417a  <+0x13a>
+0x55e065ec430f   2cf  418b80a7000000       movl rax,[r8+0xa7]
+0x55e065ec4316   2d6  4903c6               REX.W addq rax,r14
+0x55e065ec4319   2d9  83f803               cmpl rax,0x3
+0x55e065ec431c   2dc  0f8415000000         jz 0x55e065ec4337  <+0x2f7>
+0x55e065ec4322   2e2  4883e0fd             REX.W andq rax,0xfd
+0x55e065ec4326   2e6  f6401620             testb [rax+0x16],0x20
+0x55e065ec432a   2ea  7417                 jz 0x55e065ec4343  <+0x303>
+0x55e065ec432c   2ec  41c780a700000003000000 movl [r8+0xa7],0x3
+0x55e065ec4337   2f7  33c0                 xorl rax,rax
+0x55e065ec4339   2f9  4983e107             REX.W andq r9,0x7
+0x55e065ec433d   2fd  4180f900             cmpb r9l,0x0
+0x55e065ec4341   301  769b                 jna 0x55e065ec42de  <+0x29e>
+0x55e065ec4343   303  50                   push rax
+0x55e065ec4344   304  4c8b45f0             REX.W movq r8,[rbp-0x10]
+0x55e065ec4348   308  458b4017             movl r8,[r8+0x17]
+0x55e065ec434c   30c  438144060779ffffff   addl [r14+r8*1+0x7],0xffffff79
+0x55e065ec4355   315  0f8d18000000         jge 0x55e065ec4373  <+0x333>
+0x55e065ec435b   31b  488b75f8             REX.W movq rsi,[rbp-0x8]
+0x55e065ec435f   31f  ff75f0               push [rbp-0x10]
+0x55e065ec4362   322  b801000000           movl rax,0x1
+0x55e065ec4367   327  498d9db0de56fd       REX.W leaq rbx,[r13-0x2a92150]
+0x55e065ec436e   32e  e8cd060ca0           call 0x55e005f84a40  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+0x55e065ec4373   333  58                   pop rax
+0x55e065ec4374   334  488b75f8             REX.W movq rsi,[rbp-0x8]
+0x55e065ec4378   338  e8839002a0           call 0x55e005eed400  (BaselineOnStackReplacement)    ;; near builtin entry
+0x55e065ec437d   33d  4c8b45f0             REX.W movq r8,[rbp-0x10]
+0x55e065ec4381   341  458b4017             movl r8,[r8+0x17]
+0x55e065ec4385   345  438144060787000000   addl [r14+r8*1+0x7],0x87
+0x55e065ec438e   34e  e94bffffff           jmp 0x55e065ec42de  <+0x29e>
+0x55e065ec4393   353  488b45d0             REX.W movq rax,[rbp-0x30]
+0x55e065ec4397   357  bb01000000           movl rbx,0x1
+0x55e065ec439c   35c  48c7c179ffffff       REX.W movq rcx,0xffffff79
+0x55e065ec43a3   363  e9d89002a0           jmp 0x55e005eed480  (BaselineLeaveFrame)    ;; near builtin entry
+
+
+RelocInfo (size = 76)
+0x55e065ec4047  full embedded object  (0x08720019b88d <BytecodeArray[135]>)
+0x55e065ec4050  near builtin entry
+0x55e065ec405c  full embedded object  (0x08720019b819 <FixedArray[3]>)
+0x55e065ec4087  near builtin entry
+0x55e065ec4093  full embedded object  (0x08720019b85d <ArrayBoilerplateDescription PACKED_SMI_ELEMENTS, 0x08720019b82d <FixedArray[10]>>)
+0x55e065ec40a5  near builtin entry
+0x55e065ec40ab  full embedded object  (0x087200002c05 <String[1]: #x>)
+0x55e065ec40b9  near builtin entry
+0x55e065ec40bf  full embedded object  (0x0872000041f1 <String[5]: #Array>)
+0x55e065ec40cd  near builtin entry
+0x55e065ec40fe  near builtin entry
+0x55e065ec4104  full embedded object  (0x087200002c15 <String[1]: #y>)
+0x55e065ec4112  near builtin entry
+0x55e065ec411a  full embedded object  (0x08720002548d <String[5]: #count>)
+0x55e065ec4128  near builtin entry
+0x55e065ec412e  full embedded object  (0x087200002c05 <String[1]: #x>)
+0x55e065ec413c  near builtin entry
+0x55e065ec414a  full embedded object  (0x087200000e31 <String[6]: #length>)
+0x55e065ec4158  near builtin entry
+0x55e065ec4167  near builtin entry
+0x55e065ec4186  near builtin entry
+0x55e065ec4198  full embedded object  (0x087200002c15 <String[1]: #y>)
+0x55e065ec41a6  near builtin entry
+0x55e065ec41b0  full embedded object  (0x08720002548d <String[5]: #count>)
+0x55e065ec41be  near builtin entry
+0x55e065ec41c8  full embedded object  (0x087200002c05 <String[1]: #x>)
+0x55e065ec41d6  near builtin entry
+0x55e065ec41ec  near builtin entry
+0x55e065ec41fe  near builtin entry
+0x55e065ec420f  full embedded object  (0x087200002c05 <String[1]: #x>)
+0x55e065ec421d  near builtin entry
+0x55e065ec4233  near builtin entry
+0x55e065ec424a  near builtin entry
+0x55e065ec425c  full embedded object  (0x087200002c15 <String[1]: #y>)
+0x55e065ec426a  near builtin entry
+0x55e065ec4280  near builtin entry
+0x55e065ec428a  near builtin entry
+0x55e065ec4298  near builtin entry
+0x55e065ec42ae  near builtin entry
+0x55e065ec42c8  near builtin entry
+0x55e065ec4306  near builtin entry
+0x55e065ec436f  near builtin entry
+0x55e065ec4379  near builtin entry
+0x55e065ec43a4  near builtin entry
+

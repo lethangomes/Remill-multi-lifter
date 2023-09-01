@@ -9,6 +9,7 @@ vector<string> extract_instructions(ifstream& inputFile)
 {
     vector<string> out;
     ofstream outFile("extracted_instructions.txt");
+    bool introductionFound = false;
 
     //find where instructions start
     string currentLine;
@@ -16,8 +17,16 @@ vector<string> extract_instructions(ifstream& inputFile)
     {
         if(currentLine.find("Instructions") != string::npos)
         {
+            introductionFound = true;
             break;
         }
+    }
+
+    //if the "Instructions" line is not found reset getline
+    if(!introductionFound)
+    {
+        inputFile.clear();
+        inputFile.seekg (0, ios::beg);
     }
 
     //extract instructions
@@ -29,8 +38,9 @@ vector<string> extract_instructions(ifstream& inputFile)
             if(currentLine.substr(0,2) == "0x")
             {
                 //cut out the relevant instructions
-                out.push_back(currentLine.substr(22, currentLine.find(" "))+ "\r");
-                outFile << currentLine.substr(22, currentLine.find(" "))+ "\r";
+                currentLine = currentLine.substr(22);
+                out.push_back(currentLine.substr(0, currentLine.find(" "))+ " \r");
+                outFile << currentLine.substr(0, currentLine.find(" "))+ " \r";
             }
             else
             {

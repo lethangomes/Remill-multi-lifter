@@ -1,0 +1,72 @@
+0x3aac00202155: [Code] in OldSpace
+ - map: 0x3aac00000db5 <Map[56](CODE_TYPE)>
+ - kind: BASELINE
+ - deoptimization_data_or_interpreter_data: 0x3aac0019b83d <BytecodeArray[17]>
+ - position_table: 0x3aac00202129 <ByteArray[9]>
+ - instruction_stream: 0x56476e104031 <InstructionStream BASELINE>
+ - instruction_start: 0x56476e104040
+ - is_turbofanned: 0
+ - stack_slots: 0
+ - marked_for_deoptimization: 0
+ - embedded_objects_cleared: 0
+ - can_have_weak_objects: 0
+ - instruction_size: 120
+ - metadata_size: 0
+ - inlined_bytecode_size: 0
+ - osr_offset: -1
+ - handler_table_offset: 0
+ - unwinding_info_offset: 0
+ - code_comments_offset: 0
+ - instruction_stream.relocation_info: 0x3aac0020213d <ByteArray[13]>
+ - instruction_stream.body_size: 120
+
+--- Disassembly: ---
+kind = BASELINE
+compiler = baseline
+address = 0x3aac00202155
+
+Instructions (size = 120)
+0x56476e104040     0  bb18000000           movl rbx,0x18
+0x56476e104045     5  49bc3db81900ac3a0000 REX.W movq r12,0x3aac0019b83d    ;; object: 0x3aac0019b83d <BytecodeArray[17]>
+0x56476e10404f     f  e86cd103a0           call 0x56470e1411c0  (BaselineOutOfLinePrologue)    ;; near builtin entry
+0x56476e104054    14  50                   push rax
+0x56476e104055    15  50                   push rax
+0x56476e104056    16  48b9c1b71900ac3a0000 REX.W movq rcx,0x3aac0019b7c1    ;; object: 0x3aac0019b7c1 <String[6]: #prompt>
+0x56476e104060    20  33c0                 xorl rax,rax
+0x56476e104062    22  e8996a09a0           call 0x56470e19ab00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x56476e104067    27  488945c8             REX.W movq [rbp-0x38],rax
+0x56476e10406b    2b  488b45c8             REX.W movq rax,[rbp-0x38]
+0x56476e10406f    2f  bb01020000           movl rbx,0x201
+0x56476e104074    34  41ffb5f8010000       push [r13+0x1f8] (root (undefined_value))
+0x56476e10407b    3b  e8c01403a0           call 0x56470e135540  (Call_ReceiverIsNullOrUndefined_Baseline_Compact)    ;; near builtin entry
+0x56476e104080    40  488945c8             REX.W movq [rbp-0x38],rax
+0x56476e104084    44  48b9052c0000ac3a0000 REX.W movq rcx,0x3aac00002c05    ;; object: 0x3aac00002c05 <String[1]: #x>
+0x56476e10408e    4e  bf08000000           movl rdi,0x8
+0x56476e104093    53  e8a8e408a0           call 0x56470e192540  (StoreGlobalICBaseline)    ;; near builtin entry
+0x56476e104098    58  4c8b45c8             REX.W movq r8,[rbp-0x38]
+0x56476e10409c    5c  4c8945d0             REX.W movq [rbp-0x30],r8
+0x56476e1040a0    60  488b45d0             REX.W movq rax,[rbp-0x30]
+0x56476e1040a4    64  bb01000000           movl rbx,0x1
+0x56476e1040a9    69  48c7c1efffffff       REX.W movq rcx,0xffffffef
+0x56476e1040b0    70  e9cbd303a0           jmp 0x56470e141480  (BaselineLeaveFrame)    ;; near builtin entry
+0x56476e1040b5    75  cc                   int3l
+0x56476e1040b6    76  cc                   int3l
+0x56476e1040b7    77  cc                   int3l
+
+
+RelocInfo (size = 13)
+0x56476e104047  full embedded object  (0x3aac0019b83d <BytecodeArray[17]>)
+0x56476e104050  near builtin entry
+0x56476e104058  full embedded object  (0x3aac0019b7c1 <String[6]: #prompt>)
+0x56476e104063  near builtin entry
+0x56476e10407c  near builtin entry
+0x56476e104086  full embedded object  (0x3aac00002c05 <String[1]: #x>)
+0x56476e104094  near builtin entry
+0x56476e1040b1  near builtin entry
+
+test_script.js:1: ReferenceError: prompt is not defined
+x = prompt();
+^
+ReferenceError: prompt is not defined
+    at test_script.js:1:1
+

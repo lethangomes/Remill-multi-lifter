@@ -1,0 +1,179 @@
+0x266a002021a1: [Code] in OldSpace
+ - map: 0x266a00000db5 <Map[56](CODE_TYPE)>
+ - kind: BASELINE
+ - deoptimization_data_or_interpreter_data: 0x266a0019b84d <BytecodeArray[98]>
+ - position_table: 0x266a00202129 <ByteArray[41]>
+ - instruction_stream: 0x563fce284031 <InstructionStream BASELINE>
+ - instruction_start: 0x563fce284040
+ - is_turbofanned: 0
+ - stack_slots: 0
+ - marked_for_deoptimization: 0
+ - embedded_objects_cleared: 0
+ - can_have_weak_objects: 0
+ - instruction_size: 544
+ - metadata_size: 0
+ - inlined_bytecode_size: 0
+ - osr_offset: -1
+ - handler_table_offset: 0
+ - unwinding_info_offset: 0
+ - code_comments_offset: 0
+ - instruction_stream.relocation_info: 0x266a0020215d <ByteArray[60]>
+ - instruction_stream.body_size: 544
+
+--- Disassembly: ---
+kind = BASELINE
+compiler = baseline
+address = 0x266a002021a1
+
+Instructions (size = 544)
+0x563fce284040     0  bb30000000           movl rbx,0x30
+0x563fce284045     5  49bc4db819006a260000 REX.W movq r12,0x266a0019b84d    ;; object: 0x266a0019b84d <BytecodeArray[98]>
+0x563fce28404f     f  e86c81c422           call 0x563ff0ecc1c0  (BaselineOutOfLinePrologue)    ;; near builtin entry
+0x563fce284054    14  50                   push rax
+0x563fce284055    15  50                   push rax
+0x563fce284056    16  50                   push rax
+0x563fce284057    17  50                   push rax
+0x563fce284058    18  48b819b819006a260000 REX.W movq rax,0x266a0019b819    ;; object: 0x266a0019b819 <FixedArray[2]>
+0x563fce284062    22  488945c8             REX.W movq [rbp-0x38],rax
+0x563fce284066    26  4c8b45f0             REX.W movq r8,[rbp-0x10]
+0x563fce28406a    2a  4c8945c0             REX.W movq [rbp-0x40],r8
+0x563fce28406e    2e  488b75f8             REX.W movq rsi,[rbp-0x8]
+0x563fce284072    32  ff75c8               push [rbp-0x38]
+0x563fce284075    35  ff75c0               push [rbp-0x40]
+0x563fce284078    38  b802000000           movl rax,0x2
+0x563fce28407d    3d  498d9d70bb02ff       REX.W leaq rbx,[r13-0xfd4490]
+0x563fce284084    44  e8b7f9cd22           call 0x563ff0f63a40  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+0x563fce284089    49  48b9354302006a260000 REX.W movq rcx,0x266a00024335    ;; object: 0x266a00024335 <String[4]: #Math>
+0x563fce284093    53  33c0                 xorl rax,rax
+0x563fce284095    55  e8661aca22           call 0x563ff0f25b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x563fce28409a    5a  488945c0             REX.W movq [rbp-0x40],rax
+0x563fce28409e    5e  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x563fce2840a2    62  48b9ed4402006a260000 REX.W movq rcx,0x266a000244ed    ;; object: 0x266a000244ed <String[6]: #random>
+0x563fce2840ac    6c  b804000000           movl rax,0x4
+0x563fce2840b1    71  e88abec822           call 0x563ff0f0ff40  (LoadICBaseline)    ;; near builtin entry
+0x563fce2840b6    76  488945c8             REX.W movq [rbp-0x38],rax
+0x563fce2840ba    7a  488b45c8             REX.W movq rax,[rbp-0x38]
+0x563fce2840be    7e  bb01040000           movl rbx,0x401
+0x563fce2840c3    83  ff75c0               push [rbp-0x40]
+0x563fce2840c6    86  e8f5ccc322           call 0x563ff0ec0dc0  (Call_ReceiverIsNotNullOrUndefined_Baseline_Compact)    ;; near builtin entry
+0x563fce2840cb    8b  48b9052c00006a260000 REX.W movq rcx,0x266a00002c05    ;; object: 0x266a00002c05 <String[1]: #x>
+0x563fce2840d5    95  bf0c000000           movl rdi,0xc
+0x563fce2840da    9a  e86194c922           call 0x563ff0f1d540  (StoreGlobalICBaseline)    ;; near builtin entry
+0x563fce2840df    9f  48b9354302006a260000 REX.W movq rcx,0x266a00024335    ;; object: 0x266a00024335 <String[4]: #Math>
+0x563fce2840e9    a9  33c0                 xorl rax,rax
+0x563fce2840eb    ab  e8101aca22           call 0x563ff0f25b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x563fce2840f0    b0  488945c0             REX.W movq [rbp-0x40],rax
+0x563fce2840f4    b4  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x563fce2840f8    b8  48b9ed4402006a260000 REX.W movq rcx,0x266a000244ed    ;; object: 0x266a000244ed <String[6]: #random>
+0x563fce284102    c2  b804000000           movl rax,0x4
+0x563fce284107    c7  e834bec822           call 0x563ff0f0ff40  (LoadICBaseline)    ;; near builtin entry
+0x563fce28410c    cc  488945c8             REX.W movq [rbp-0x38],rax
+0x563fce284110    d0  488b45c8             REX.W movq rax,[rbp-0x38]
+0x563fce284114    d4  bb01080000           movl rbx,0x801
+0x563fce284119    d9  ff75c0               push [rbp-0x40]
+0x563fce28411c    dc  e89fccc322           call 0x563ff0ec0dc0  (Call_ReceiverIsNotNullOrUndefined_Baseline_Compact)    ;; near builtin entry
+0x563fce284121    e1  48b9152c00006a260000 REX.W movq rcx,0x266a00002c15    ;; object: 0x266a00002c15 <String[1]: #y>
+0x563fce28412b    eb  bf14000000           movl rdi,0x14
+0x563fce284130    f0  e80b94c922           call 0x563ff0f1d540  (StoreGlobalICBaseline)    ;; near builtin entry
+0x563fce284135    f5  48b9052c00006a260000 REX.W movq rcx,0x266a00002c05    ;; object: 0x266a00002c05 <String[1]: #x>
+0x563fce28413f    ff  b818000000           movl rax,0x18
+0x563fce284144   104  e8b719ca22           call 0x563ff0f25b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x563fce284149   109  488945c8             REX.W movq [rbp-0x38],rax
+0x563fce28414d   10d  48b9152c00006a260000 REX.W movq rcx,0x266a00002c15    ;; object: 0x266a00002c15 <String[1]: #y>
+0x563fce284157   117  b81c000000           movl rax,0x1c
+0x563fce28415c   11c  e89f19ca22           call 0x563ff0f25b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x563fce284161   121  488b55c8             REX.W movq rdx,[rbp-0x38]
+0x563fce284165   125  bb10000000           movl rbx,0x10
+0x563fce28416a   12a  e8115ccb22           call 0x563ff0f39d80  (LessThan_Baseline)    ;; near builtin entry
+0x563fce28416f   12f  3df90d0000           cmp rax,0xdf9
+0x563fce284174   134  7505                 jnz 0x563fce28417b  <+0x13b>
+0x563fce284176   136  e969000000           jmp 0x563fce2841e4  <+0x1a4>
+0x563fce28417b   13b  48b9f94400006a260000 REX.W movq rcx,0x266a000044f9    ;; object: 0x266a000044f9 <String[7]: #console>
+0x563fce284185   145  b822000000           movl rax,0x22
+0x563fce28418a   14a  e87119ca22           call 0x563ff0f25b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x563fce28418f   14f  488945c0             REX.W movq [rbp-0x40],rax
+0x563fce284193   153  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x563fce284197   157  48b9754402006a260000 REX.W movq rcx,0x266a00024475    ;; object: 0x266a00024475 <String[3]: #log>
+0x563fce2841a1   161  b826000000           movl rax,0x26
+0x563fce2841a6   166  e895bdc822           call 0x563ff0f0ff40  (LoadICBaseline)    ;; near builtin entry
+0x563fce2841ab   16b  488945c8             REX.W movq [rbp-0x38],rax
+0x563fce2841af   16f  48b9052c00006a260000 REX.W movq rcx,0x266a00002c05    ;; object: 0x266a00002c05 <String[1]: #x>
+0x563fce2841b9   179  b818000000           movl rax,0x18
+0x563fce2841be   17e  e83d19ca22           call 0x563ff0f25b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x563fce2841c3   183  488945b8             REX.W movq [rbp-0x48],rax
+0x563fce2841c7   187  488b45c8             REX.W movq rax,[rbp-0x38]
+0x563fce2841cb   18b  bb02150000           movl rbx,0x1502
+0x563fce2841d0   190  ff75b8               push [rbp-0x48]
+0x563fce2841d3   193  ff75c0               push [rbp-0x40]
+0x563fce2841d6   196  e8e5cbc322           call 0x563ff0ec0dc0  (Call_ReceiverIsNotNullOrUndefined_Baseline_Compact)    ;; near builtin entry
+0x563fce2841db   19b  488945d0             REX.W movq [rbp-0x30],rax
+0x563fce2841df   19f  e964000000           jmp 0x563fce284248  <+0x208>
+0x563fce2841e4   1a4  48b9f94400006a260000 REX.W movq rcx,0x266a000044f9    ;; object: 0x266a000044f9 <String[7]: #console>
+0x563fce2841ee   1ae  b822000000           movl rax,0x22
+0x563fce2841f3   1b3  e80819ca22           call 0x563ff0f25b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x563fce2841f8   1b8  488945c0             REX.W movq [rbp-0x40],rax
+0x563fce2841fc   1bc  488b55c0             REX.W movq rdx,[rbp-0x40]
+0x563fce284200   1c0  48b9754402006a260000 REX.W movq rcx,0x266a00024475    ;; object: 0x266a00024475 <String[3]: #log>
+0x563fce28420a   1ca  b826000000           movl rax,0x26
+0x563fce28420f   1cf  e82cbdc822           call 0x563ff0f0ff40  (LoadICBaseline)    ;; near builtin entry
+0x563fce284214   1d4  488945c8             REX.W movq [rbp-0x38],rax
+0x563fce284218   1d8  48b9152c00006a260000 REX.W movq rcx,0x266a00002c15    ;; object: 0x266a00002c15 <String[1]: #y>
+0x563fce284222   1e2  b81c000000           movl rax,0x1c
+0x563fce284227   1e7  e8d418ca22           call 0x563ff0f25b00  (LoadGlobalICBaseline)    ;; near builtin entry
+0x563fce28422c   1ec  488945b8             REX.W movq [rbp-0x48],rax
+0x563fce284230   1f0  488b45c8             REX.W movq rax,[rbp-0x38]
+0x563fce284234   1f4  bb02170000           movl rbx,0x1702
+0x563fce284239   1f9  ff75b8               push [rbp-0x48]
+0x563fce28423c   1fc  ff75c0               push [rbp-0x40]
+0x563fce28423f   1ff  e87ccbc322           call 0x563ff0ec0dc0  (Call_ReceiverIsNotNullOrUndefined_Baseline_Compact)    ;; near builtin entry
+0x563fce284244   204  488945d0             REX.W movq [rbp-0x30],rax
+0x563fce284248   208  488b45d0             REX.W movq rax,[rbp-0x30]
+0x563fce28424c   20c  bb01000000           movl rbx,0x1
+0x563fce284251   211  48c7c19effffff       REX.W movq rcx,0xffffff9e
+0x563fce284258   218  e92382c422           jmp 0x563ff0ecc480  (BaselineLeaveFrame)    ;; near builtin entry
+0x563fce28425d   21d  cc                   int3l
+0x563fce28425e   21e  cc                   int3l
+0x563fce28425f   21f  cc                   int3l
+
+
+RelocInfo (size = 60)
+0x563fce284047  full embedded object  (0x266a0019b84d <BytecodeArray[98]>)
+0x563fce284050  near builtin entry
+0x563fce28405a  full embedded object  (0x266a0019b819 <FixedArray[2]>)
+0x563fce284085  near builtin entry
+0x563fce28408b  full embedded object  (0x266a00024335 <String[4]: #Math>)
+0x563fce284096  near builtin entry
+0x563fce2840a4  full embedded object  (0x266a000244ed <String[6]: #random>)
+0x563fce2840b2  near builtin entry
+0x563fce2840c7  near builtin entry
+0x563fce2840cd  full embedded object  (0x266a00002c05 <String[1]: #x>)
+0x563fce2840db  near builtin entry
+0x563fce2840e1  full embedded object  (0x266a00024335 <String[4]: #Math>)
+0x563fce2840ec  near builtin entry
+0x563fce2840fa  full embedded object  (0x266a000244ed <String[6]: #random>)
+0x563fce284108  near builtin entry
+0x563fce28411d  near builtin entry
+0x563fce284123  full embedded object  (0x266a00002c15 <String[1]: #y>)
+0x563fce284131  near builtin entry
+0x563fce284137  full embedded object  (0x266a00002c05 <String[1]: #x>)
+0x563fce284145  near builtin entry
+0x563fce28414f  full embedded object  (0x266a00002c15 <String[1]: #y>)
+0x563fce28415d  near builtin entry
+0x563fce28416b  near builtin entry
+0x563fce28417d  full embedded object  (0x266a000044f9 <String[7]: #console>)
+0x563fce28418b  near builtin entry
+0x563fce284199  full embedded object  (0x266a00024475 <String[3]: #log>)
+0x563fce2841a7  near builtin entry
+0x563fce2841b1  full embedded object  (0x266a00002c05 <String[1]: #x>)
+0x563fce2841bf  near builtin entry
+0x563fce2841d7  near builtin entry
+0x563fce2841e6  full embedded object  (0x266a000044f9 <String[7]: #console>)
+0x563fce2841f4  near builtin entry
+0x563fce284202  full embedded object  (0x266a00024475 <String[3]: #log>)
+0x563fce284210  near builtin entry
+0x563fce28421a  full embedded object  (0x266a00002c15 <String[1]: #y>)
+0x563fce284228  near builtin entry
+0x563fce284240  near builtin entry
+0x563fce284259  near builtin entry
+
+0.06167878421025641
