@@ -1,0 +1,1432 @@
+0x30fe000dada9: [Code] in OldSpace
+ - map: 0x30fe00000d9d <Map[60](CODE_TYPE)>
+ - kind: BASELINE
+ - instruction_stream: 0x555e65804031 <InstructionStream BASELINE>
+ - instruction_start: 0x555e65804040
+ - flags: 11
+0x555e65804031: [InstructionStream]
+ - map: 0x30fe00000a75 <Map(INSTRUCTION_STREAM_TYPE)>
+ - code: 0x30fe000dada9 <Code BASELINE>kind = BASELINE
+compiler = baseline
+address = 0x30fe000dada9
+
+Instructions (size = 2572)
+                  [ Prologue
+                    [ CallBuiltin
+0x555e65804040     0  bb18000000           movl rbx,0x18
+0x555e65804045     5  49bc05ad0d00fe300000 REX.W movq r12,0x30fe000dad05    ;; object: 0x30fe000dad05 <BytecodeArray[54]>
+                      [ Inlined  Trampoline for call to BaselineOutOfLinePrologue
+0x555e6580404f     f  e8ec1204a0           call 0x555e05845340  (BaselineOutOfLinePrologue)    ;; near builtin entry
+                      ]
+                    ]
+                    [ PrologueFillFrame
+0x555e65804054    14  3d51020000           cmp rax,0x251     ;; (compressed) object: 0x30fe00000251 <undefined>
+0x555e65804059    19  740d                 jz 0x555e65804068  <+0x28>
+                      [ Abort
+                  Abort message: 
+                  Unexpected value
+0x555e6580405b    1b  ba76000000           movl rdx,0x76
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804060    20  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804067    27  cc                   int3l
+                      ]
+0x555e65804068    28  50                   push rax
+0x555e65804069    29  50                   push rax
+0x555e6580406a    2a  50                   push rax
+                    ]
+                  ]
+                  [ 13 00             LdaConstant [0]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e6580406b    2b  4989e2               REX.W movq r10,rsp
+0x555e6580406e    2e  4983c240             REX.W addq r10,0x40
+0x555e65804072    32  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804075    35  740d                 jz 0x555e65804084  <+0x44>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804077    37  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580407c    3c  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804083    43  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e65804084    44  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804088    48  41f6c001             testb r8,0x1
+0x555e6580408c    4c  0f8424000000         jz 0x555e658040b6  <+0x76>
+                      [ AssertNotSmi
+0x555e65804092    52  41f6c001             testb r8,0x1
+0x555e65804096    56  750d                 jnz 0x555e658040a5  <+0x65>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804098    58  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580409d    5d  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658040a4    64  cc                   int3l
+                        ]
+                      ]
+0x555e658040a5    65  458b48ff             movl r9,[r8-0x1]
+0x555e658040a9    69  4181f91d030000       cmpl r9,0x31d
+0x555e658040b0    70  0f840d000000         jz 0x555e658040c3  <+0x83>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658040b6    76  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658040bb    7b  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658040c2    82  cc                   int3l
+                      ]
+                    ]
+0x555e658040c3    83  48b8d9ac0d00fe300000 REX.W movq rax,0x30fe000dacd9    ;; object: 0x30fe000dacd9 <FixedArray[1]>
+                  ]
+                  [ c3                Star1
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658040cd    8d  4989e2               REX.W movq r10,rsp
+0x555e658040d0    90  4983c240             REX.W addq r10,0x40
+0x555e658040d4    94  4c3bd5               REX.W cmpq r10,rbp
+0x555e658040d7    97  740d                 jz 0x555e658040e6  <+0xa6>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658040d9    99  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658040de    9e  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658040e5    a5  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658040e6    a6  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658040ea    aa  41f6c001             testb r8,0x1
+0x555e658040ee    ae  0f8424000000         jz 0x555e65804118  <+0xd8>
+                      [ AssertNotSmi
+0x555e658040f4    b4  41f6c001             testb r8,0x1
+0x555e658040f8    b8  750d                 jnz 0x555e65804107  <+0xc7>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658040fa    ba  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658040ff    bf  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804106    c6  cc                   int3l
+                        ]
+                      ]
+0x555e65804107    c7  458b48ff             movl r9,[r8-0x1]
+0x555e6580410b    cb  4181f91d030000       cmpl r9,0x31d
+0x555e65804112    d2  0f840d000000         jz 0x555e65804125  <+0xe5>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804118    d8  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e6580411d    dd  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804124    e4  cc                   int3l
+                      ]
+                    ]
+                    [ EnsureAccumulatorPreservedScope
+0x555e65804125    e5  50                   push rax
+0x555e65804126    e6  488945c8             REX.W movq [rbp-0x38],rax
+0x555e6580412a    ea  4158                 pop r8
+0x555e6580412c    ec  443bc0               cmpl r8,rax
+0x555e6580412f    ef  740d                 jz 0x555e6580413e  <+0xfe>
+                      [ Abort
+                  Abort message: 
+                  Accumulator clobbered
+0x555e65804131    f1  ba08000000           movl rdx,0x8
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804136    f6  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e6580413d    fd  cc                   int3l
+                      ]
+                    ]
+                  ]
+                  [ 19 fe f8          Mov <closure>, r2
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e6580413e    fe  4989e2               REX.W movq r10,rsp
+0x555e65804141   101  4983c240             REX.W addq r10,0x40
+0x555e65804145   105  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804148   108  740d                 jz 0x555e65804157  <+0x117>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e6580414a   10a  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580414f   10f  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804156   116  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e65804157   117  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e6580415b   11b  41f6c001             testb r8,0x1
+0x555e6580415f   11f  0f8424000000         jz 0x555e65804189  <+0x149>
+                      [ AssertNotSmi
+0x555e65804165   125  41f6c001             testb r8,0x1
+0x555e65804169   129  750d                 jnz 0x555e65804178  <+0x138>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e6580416b   12b  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804170   130  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804177   137  cc                   int3l
+                        ]
+                      ]
+0x555e65804178   138  458b48ff             movl r9,[r8-0x1]
+0x555e6580417c   13c  4181f91d030000       cmpl r9,0x31d
+0x555e65804183   143  0f840d000000         jz 0x555e65804196  <+0x156>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804189   149  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e6580418e   14e  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804195   155  cc                   int3l
+                      ]
+                    ]
+                    [ EnsureAccumulatorPreservedScope
+0x555e65804196   156  50                   push rax
+0x555e65804197   157  4c8b45f0             REX.W movq r8,[rbp-0x10]
+0x555e6580419b   15b  4c8945c0             REX.W movq [rbp-0x40],r8
+0x555e6580419f   15f  4158                 pop r8
+0x555e658041a1   161  443bc0               cmpl r8,rax
+0x555e658041a4   164  740d                 jz 0x555e658041b3  <+0x173>
+                      [ Abort
+                  Abort message: 
+                  Accumulator clobbered
+0x555e658041a6   166  ba08000000           movl rdx,0x8
+                        [ Frame: NO_FRAME_TYPE
+0x555e658041ab   16b  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658041b2   172  cc                   int3l
+                      ]
+                    ]
+                  ]
+                  [ 65 65 01 f9 02    CallRuntime [DeclareGlobals], r1-r2
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658041b3   173  4989e2               REX.W movq r10,rsp
+0x555e658041b6   176  4983c240             REX.W addq r10,0x40
+0x555e658041ba   17a  4c3bd5               REX.W cmpq r10,rbp
+0x555e658041bd   17d  740d                 jz 0x555e658041cc  <+0x18c>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658041bf   17f  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658041c4   184  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658041cb   18b  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658041cc   18c  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658041d0   190  41f6c001             testb r8,0x1
+0x555e658041d4   194  0f8424000000         jz 0x555e658041fe  <+0x1be>
+                      [ AssertNotSmi
+0x555e658041da   19a  41f6c001             testb r8,0x1
+0x555e658041de   19e  750d                 jnz 0x555e658041ed  <+0x1ad>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658041e0   1a0  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658041e5   1a5  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658041ec   1ac  cc                   int3l
+                        ]
+                      ]
+0x555e658041ed   1ad  458b48ff             movl r9,[r8-0x1]
+0x555e658041f1   1b1  4181f91d030000       cmpl r9,0x31d
+0x555e658041f8   1b8  0f840d000000         jz 0x555e6580420b  <+0x1cb>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658041fe   1be  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804203   1c3  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e6580420a   1ca  cc                   int3l
+                      ]
+                    ]
+0x555e6580420b   1cb  488b75f8             REX.W movq rsi,[rbp-0x8]
+0x555e6580420f   1cf  ff75c8               push [rbp-0x38]
+0x555e65804212   1d2  ff75c0               push [rbp-0x40]
+                    [ CallRuntime
+0x555e65804215   1d5  b802000000           movl rax,0x2
+0x555e6580421a   1da  498d9dd02caafb       REX.W leaq rbx,[r13-0x455d330]
+                      [ Inlined  Trampoline for call to CEntry_Return1_ArgvOnStack_NoBuiltinExit
+0x555e65804221   1e1  e8daa53da0           call 0x555e05bde800  (CEntry_Return1_ArgvOnStack_NoBuiltinExit)    ;; near builtin entry
+                      ]
+                    ]
+                  ]
+                  [ 13 01             LdaConstant [1]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804226   1e6  4989e2               REX.W movq r10,rsp
+0x555e65804229   1e9  4983c240             REX.W addq r10,0x40
+0x555e6580422d   1ed  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804230   1f0  740d                 jz 0x555e6580423f  <+0x1ff>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804232   1f2  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804237   1f7  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580423e   1fe  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e6580423f   1ff  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804243   203  41f6c001             testb r8,0x1
+0x555e65804247   207  0f8424000000         jz 0x555e65804271  <+0x231>
+                      [ AssertNotSmi
+0x555e6580424d   20d  41f6c001             testb r8,0x1
+0x555e65804251   211  750d                 jnz 0x555e65804260  <+0x220>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804253   213  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804258   218  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580425f   21f  cc                   int3l
+                        ]
+                      ]
+0x555e65804260   220  458b48ff             movl r9,[r8-0x1]
+0x555e65804264   224  4181f91d030000       cmpl r9,0x31d
+0x555e6580426b   22b  0f840d000000         jz 0x555e6580427e  <+0x23e>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804271   231  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804276   236  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e6580427d   23d  cc                   int3l
+                      ]
+                    ]
+0x555e6580427e   23e  48b835ac0d00fe300000 REX.W movq rax,0x30fe000dac35    ;; object: 0x30fe000dac35 <String[5]: #world>
+                  ]
+                  [ 23 02 00          StaGlobal [2], [0]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804288   248  4989e2               REX.W movq r10,rsp
+0x555e6580428b   24b  4983c240             REX.W addq r10,0x40
+0x555e6580428f   24f  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804292   252  740d                 jz 0x555e658042a1  <+0x261>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804294   254  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804299   259  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658042a0   260  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658042a1   261  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658042a5   265  41f6c001             testb r8,0x1
+0x555e658042a9   269  0f8424000000         jz 0x555e658042d3  <+0x293>
+                      [ AssertNotSmi
+0x555e658042af   26f  41f6c001             testb r8,0x1
+0x555e658042b3   273  750d                 jnz 0x555e658042c2  <+0x282>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658042b5   275  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658042ba   27a  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658042c1   281  cc                   int3l
+                        ]
+                      ]
+0x555e658042c2   282  458b48ff             movl r9,[r8-0x1]
+0x555e658042c6   286  4181f91d030000       cmpl r9,0x31d
+0x555e658042cd   28d  0f840d000000         jz 0x555e658042e0  <+0x2a0>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658042d3   293  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658042d8   298  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658042df   29f  cc                   int3l
+                      ]
+                    ]
+                    [ CallBuiltin
+0x555e658042e0   2a0  48b9752b0000fe300000 REX.W movq rcx,0x30fe00002b75    ;; object: 0x30fe00002b75 <String[1]: #s>
+0x555e658042ea   2aa  33ff                 xorl rdi,rdi
+                      [ Inlined  Trampoline for call to StoreGlobalICBaseline
+0x555e658042ec   2ac  e88fb821a0           call 0x555e05a1fb80  (StoreGlobalICBaseline)    ;; near builtin entry
+                      ]
+                    ]
+                  ]
+                  [ 21 02 02          LdaGlobal [2], [2]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658042f1   2b1  4989e2               REX.W movq r10,rsp
+0x555e658042f4   2b4  4983c240             REX.W addq r10,0x40
+0x555e658042f8   2b8  4c3bd5               REX.W cmpq r10,rbp
+0x555e658042fb   2bb  740d                 jz 0x555e6580430a  <+0x2ca>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658042fd   2bd  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804302   2c2  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804309   2c9  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e6580430a   2ca  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e6580430e   2ce  41f6c001             testb r8,0x1
+0x555e65804312   2d2  0f8424000000         jz 0x555e6580433c  <+0x2fc>
+                      [ AssertNotSmi
+0x555e65804318   2d8  41f6c001             testb r8,0x1
+0x555e6580431c   2dc  750d                 jnz 0x555e6580432b  <+0x2eb>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e6580431e   2de  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804323   2e3  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580432a   2ea  cc                   int3l
+                        ]
+                      ]
+0x555e6580432b   2eb  458b48ff             movl r9,[r8-0x1]
+0x555e6580432f   2ef  4181f91d030000       cmpl r9,0x31d
+0x555e65804336   2f6  0f840d000000         jz 0x555e65804349  <+0x309>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e6580433c   2fc  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804341   301  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804348   308  cc                   int3l
+                      ]
+                    ]
+                    [ CallBuiltin
+0x555e65804349   309  48b9752b0000fe300000 REX.W movq rcx,0x30fe00002b75    ;; object: 0x30fe00002b75 <String[1]: #s>
+0x555e65804353   313  b804000000           movl rax,0x4
+                      [ Inlined  Trampoline for call to LoadGlobalICBaseline
+0x555e65804358   318  e863be25a0           call 0x555e05a601c0  (LoadGlobalICBaseline)    ;; near builtin entry
+                      ]
+                    ]
+                  ]
+                  [ c3                Star1
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e6580435d   31d  4989e2               REX.W movq r10,rsp
+0x555e65804360   320  4983c240             REX.W addq r10,0x40
+0x555e65804364   324  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804367   327  740d                 jz 0x555e65804376  <+0x336>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804369   329  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580436e   32e  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804375   335  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e65804376   336  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e6580437a   33a  41f6c001             testb r8,0x1
+0x555e6580437e   33e  0f8424000000         jz 0x555e658043a8  <+0x368>
+                      [ AssertNotSmi
+0x555e65804384   344  41f6c001             testb r8,0x1
+0x555e65804388   348  750d                 jnz 0x555e65804397  <+0x357>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e6580438a   34a  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580438f   34f  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804396   356  cc                   int3l
+                        ]
+                      ]
+0x555e65804397   357  458b48ff             movl r9,[r8-0x1]
+0x555e6580439b   35b  4181f91d030000       cmpl r9,0x31d
+0x555e658043a2   362  0f840d000000         jz 0x555e658043b5  <+0x375>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658043a8   368  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658043ad   36d  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658043b4   374  cc                   int3l
+                      ]
+                    ]
+                    [ EnsureAccumulatorPreservedScope
+0x555e658043b5   375  50                   push rax
+0x555e658043b6   376  488945c8             REX.W movq [rbp-0x38],rax
+0x555e658043ba   37a  4158                 pop r8
+0x555e658043bc   37c  443bc0               cmpl r8,rax
+0x555e658043bf   37f  740d                 jz 0x555e658043ce  <+0x38e>
+                      [ Abort
+                  Abort message: 
+                  Accumulator clobbered
+0x555e658043c1   381  ba08000000           movl rdx,0x8
+                        [ Frame: NO_FRAME_TYPE
+0x555e658043c6   386  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658043cd   38d  cc                   int3l
+                      ]
+                    ]
+                  ]
+                  [ 13 03             LdaConstant [3]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658043ce   38e  4989e2               REX.W movq r10,rsp
+0x555e658043d1   391  4983c240             REX.W addq r10,0x40
+0x555e658043d5   395  4c3bd5               REX.W cmpq r10,rbp
+0x555e658043d8   398  740d                 jz 0x555e658043e7  <+0x3a7>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658043da   39a  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658043df   39f  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658043e6   3a6  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658043e7   3a7  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658043eb   3ab  41f6c001             testb r8,0x1
+0x555e658043ef   3af  0f8424000000         jz 0x555e65804419  <+0x3d9>
+                      [ AssertNotSmi
+0x555e658043f5   3b5  41f6c001             testb r8,0x1
+0x555e658043f9   3b9  750d                 jnz 0x555e65804408  <+0x3c8>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658043fb   3bb  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804400   3c0  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804407   3c7  cc                   int3l
+                        ]
+                      ]
+0x555e65804408   3c8  458b48ff             movl r9,[r8-0x1]
+0x555e6580440c   3cc  4181f91d030000       cmpl r9,0x31d
+0x555e65804413   3d3  0f840d000000         jz 0x555e65804426  <+0x3e6>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804419   3d9  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e6580441e   3de  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804425   3e5  cc                   int3l
+                      ]
+                    ]
+0x555e65804426   3e6  48b849ac0d00fe300000 REX.W movq rax,0x30fe000dac49    ;; object: 0x30fe000dac49 <String[5]: #hello>
+                  ]
+                  [ 6b f9 04          TestEqual r1, [4]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804430   3f0  4989e2               REX.W movq r10,rsp
+0x555e65804433   3f3  4983c240             REX.W addq r10,0x40
+0x555e65804437   3f7  4c3bd5               REX.W cmpq r10,rbp
+0x555e6580443a   3fa  740d                 jz 0x555e65804449  <+0x409>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e6580443c   3fc  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804441   401  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804448   408  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e65804449   409  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e6580444d   40d  41f6c001             testb r8,0x1
+0x555e65804451   411  0f8424000000         jz 0x555e6580447b  <+0x43b>
+                      [ AssertNotSmi
+0x555e65804457   417  41f6c001             testb r8,0x1
+0x555e6580445b   41b  750d                 jnz 0x555e6580446a  <+0x42a>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e6580445d   41d  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804462   422  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804469   429  cc                   int3l
+                        ]
+                      ]
+0x555e6580446a   42a  458b48ff             movl r9,[r8-0x1]
+0x555e6580446e   42e  4181f91d030000       cmpl r9,0x31d
+0x555e65804475   435  0f840d000000         jz 0x555e65804488  <+0x448>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e6580447b   43b  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804480   440  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804487   447  cc                   int3l
+                      ]
+                    ]
+                    [ CallBuiltin
+0x555e65804488   448  488b55c8             REX.W movq rdx,[rbp-0x38]
+0x555e6580448c   44c  bb04000000           movl rbx,0x4
+                      [ Inlined  Trampoline for call to Equal_Baseline
+0x555e65804491   451  e8ea4f2fa0           call 0x555e05af9480  (Equal_Baseline)    ;; near builtin entry
+                      ]
+                    ]
+                  ]
+                  [ 99 0f             JumpIfFalse [15]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804496   456  4989e2               REX.W movq r10,rsp
+0x555e65804499   459  4983c240             REX.W addq r10,0x40
+0x555e6580449d   45d  4c3bd5               REX.W cmpq r10,rbp
+0x555e658044a0   460  740d                 jz 0x555e658044af  <+0x46f>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658044a2   462  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658044a7   467  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658044ae   46e  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658044af   46f  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658044b3   473  41f6c001             testb r8,0x1
+0x555e658044b7   477  0f8424000000         jz 0x555e658044e1  <+0x4a1>
+                      [ AssertNotSmi
+0x555e658044bd   47d  41f6c001             testb r8,0x1
+0x555e658044c1   481  750d                 jnz 0x555e658044d0  <+0x490>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658044c3   483  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658044c8   488  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658044cf   48f  cc                   int3l
+                        ]
+                      ]
+0x555e658044d0   490  458b48ff             movl r9,[r8-0x1]
+0x555e658044d4   494  4181f91d030000       cmpl r9,0x31d
+0x555e658044db   49b  0f840d000000         jz 0x555e658044ee  <+0x4ae>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658044e1   4a1  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658044e6   4a6  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658044ed   4ad  cc                   int3l
+                      ]
+                    ]
+0x555e658044ee   4ae  3de10d0000           cmp rax,0xde1
+0x555e658044f3   4b3  7505                 jnz 0x555e658044fa  <+0x4ba>
+0x555e658044f5   4b5  e96a020000           jmp 0x555e65804764  <+0x724>
+                  ]
+                  [ 13 04             LdaConstant [4]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658044fa   4ba  4989e2               REX.W movq r10,rsp
+0x555e658044fd   4bd  4983c240             REX.W addq r10,0x40
+0x555e65804501   4c1  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804504   4c4  740d                 jz 0x555e65804513  <+0x4d3>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804506   4c6  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580450b   4cb  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804512   4d2  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e65804513   4d3  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804517   4d7  41f6c001             testb r8,0x1
+0x555e6580451b   4db  0f8424000000         jz 0x555e65804545  <+0x505>
+                      [ AssertNotSmi
+0x555e65804521   4e1  41f6c001             testb r8,0x1
+0x555e65804525   4e5  750d                 jnz 0x555e65804534  <+0x4f4>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804527   4e7  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580452c   4ec  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804533   4f3  cc                   int3l
+                        ]
+                      ]
+0x555e65804534   4f4  458b48ff             movl r9,[r8-0x1]
+0x555e65804538   4f8  4181f91d030000       cmpl r9,0x31d
+0x555e6580453f   4ff  0f840d000000         jz 0x555e65804552  <+0x512>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804545   505  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e6580454a   50a  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804551   511  cc                   int3l
+                      ]
+                    ]
+0x555e65804552   512  48b85dac0d00fe300000 REX.W movq rax,0x30fe000dac5d    ;; object: 0x30fe000dac5d <String[7]: #testone>
+                  ]
+                  [ c3                Star1
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e6580455c   51c  4989e2               REX.W movq r10,rsp
+0x555e6580455f   51f  4983c240             REX.W addq r10,0x40
+0x555e65804563   523  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804566   526  740d                 jz 0x555e65804575  <+0x535>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804568   528  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580456d   52d  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804574   534  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e65804575   535  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804579   539  41f6c001             testb r8,0x1
+0x555e6580457d   53d  0f8424000000         jz 0x555e658045a7  <+0x567>
+                      [ AssertNotSmi
+0x555e65804583   543  41f6c001             testb r8,0x1
+0x555e65804587   547  750d                 jnz 0x555e65804596  <+0x556>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804589   549  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e6580458e   54e  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804595   555  cc                   int3l
+                        ]
+                      ]
+0x555e65804596   556  458b48ff             movl r9,[r8-0x1]
+0x555e6580459a   55a  4181f91d030000       cmpl r9,0x31d
+0x555e658045a1   561  0f840d000000         jz 0x555e658045b4  <+0x574>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658045a7   567  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658045ac   56c  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658045b3   573  cc                   int3l
+                      ]
+                    ]
+                    [ EnsureAccumulatorPreservedScope
+0x555e658045b4   574  50                   push rax
+0x555e658045b5   575  488945c8             REX.W movq [rbp-0x38],rax
+0x555e658045b9   579  4158                 pop r8
+0x555e658045bb   57b  443bc0               cmpl r8,rax
+0x555e658045be   57e  740d                 jz 0x555e658045cd  <+0x58d>
+                      [ Abort
+                  Abort message: 
+                  Accumulator clobbered
+0x555e658045c0   580  ba08000000           movl rdx,0x8
+                        [ Frame: NO_FRAME_TYPE
+0x555e658045c5   585  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658045cc   58c  cc                   int3l
+                      ]
+                    ]
+                  ]
+                  [ 23 02 00          StaGlobal [2], [0]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658045cd   58d  4989e2               REX.W movq r10,rsp
+0x555e658045d0   590  4983c240             REX.W addq r10,0x40
+0x555e658045d4   594  4c3bd5               REX.W cmpq r10,rbp
+0x555e658045d7   597  740d                 jz 0x555e658045e6  <+0x5a6>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658045d9   599  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658045de   59e  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658045e5   5a5  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658045e6   5a6  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658045ea   5aa  41f6c001             testb r8,0x1
+0x555e658045ee   5ae  0f8424000000         jz 0x555e65804618  <+0x5d8>
+                      [ AssertNotSmi
+0x555e658045f4   5b4  41f6c001             testb r8,0x1
+0x555e658045f8   5b8  750d                 jnz 0x555e65804607  <+0x5c7>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658045fa   5ba  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658045ff   5bf  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804606   5c6  cc                   int3l
+                        ]
+                      ]
+0x555e65804607   5c7  458b48ff             movl r9,[r8-0x1]
+0x555e6580460b   5cb  4181f91d030000       cmpl r9,0x31d
+0x555e65804612   5d2  0f840d000000         jz 0x555e65804625  <+0x5e5>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804618   5d8  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e6580461d   5dd  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804624   5e4  cc                   int3l
+                      ]
+                    ]
+                    [ CallBuiltin
+0x555e65804625   5e5  48b9752b0000fe300000 REX.W movq rcx,0x30fe00002b75    ;; object: 0x30fe00002b75 <String[1]: #s>
+0x555e6580462f   5ef  33ff                 xorl rdi,rdi
+                      [ Inlined  Trampoline for call to StoreGlobalICBaseline
+0x555e65804631   5f1  e84ab521a0           call 0x555e05a1fb80  (StoreGlobalICBaseline)    ;; near builtin entry
+                      ]
+                    ]
+                  ]
+                  [ 19 f9 fa          Mov r1, r0
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804636   5f6  4989e2               REX.W movq r10,rsp
+0x555e65804639   5f9  4983c240             REX.W addq r10,0x40
+0x555e6580463d   5fd  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804640   600  740d                 jz 0x555e6580464f  <+0x60f>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804642   602  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804647   607  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580464e   60e  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e6580464f   60f  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804653   613  41f6c001             testb r8,0x1
+0x555e65804657   617  0f8424000000         jz 0x555e65804681  <+0x641>
+                      [ AssertNotSmi
+0x555e6580465d   61d  41f6c001             testb r8,0x1
+0x555e65804661   621  750d                 jnz 0x555e65804670  <+0x630>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804663   623  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804668   628  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580466f   62f  cc                   int3l
+                        ]
+                      ]
+0x555e65804670   630  458b48ff             movl r9,[r8-0x1]
+0x555e65804674   634  4181f91d030000       cmpl r9,0x31d
+0x555e6580467b   63b  0f840d000000         jz 0x555e6580468e  <+0x64e>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804681   641  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804686   646  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e6580468d   64d  cc                   int3l
+                      ]
+                    ]
+                    [ EnsureAccumulatorPreservedScope
+0x555e6580468e   64e  50                   push rax
+0x555e6580468f   64f  4c8b45c8             REX.W movq r8,[rbp-0x38]
+0x555e65804693   653  4c8945d0             REX.W movq [rbp-0x30],r8
+0x555e65804697   657  4158                 pop r8
+0x555e65804699   659  443bc0               cmpl r8,rax
+0x555e6580469c   65c  740d                 jz 0x555e658046ab  <+0x66b>
+                      [ Abort
+                  Abort message: 
+                  Accumulator clobbered
+0x555e6580469e   65e  ba08000000           movl rdx,0x8
+                        [ Frame: NO_FRAME_TYPE
+0x555e658046a3   663  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658046aa   66a  cc                   int3l
+                      ]
+                    ]
+                  ]
+                  [ 0b f9             Ldar r1
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658046ab   66b  4989e2               REX.W movq r10,rsp
+0x555e658046ae   66e  4983c240             REX.W addq r10,0x40
+0x555e658046b2   672  4c3bd5               REX.W cmpq r10,rbp
+0x555e658046b5   675  740d                 jz 0x555e658046c4  <+0x684>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658046b7   677  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658046bc   67c  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658046c3   683  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658046c4   684  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658046c8   688  41f6c001             testb r8,0x1
+0x555e658046cc   68c  0f8424000000         jz 0x555e658046f6  <+0x6b6>
+                      [ AssertNotSmi
+0x555e658046d2   692  41f6c001             testb r8,0x1
+0x555e658046d6   696  750d                 jnz 0x555e658046e5  <+0x6a5>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658046d8   698  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658046dd   69d  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658046e4   6a4  cc                   int3l
+                        ]
+                      ]
+0x555e658046e5   6a5  458b48ff             movl r9,[r8-0x1]
+0x555e658046e9   6a9  4181f91d030000       cmpl r9,0x31d
+0x555e658046f0   6b0  0f840d000000         jz 0x555e65804703  <+0x6c3>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658046f6   6b6  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658046fb   6bb  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804702   6c2  cc                   int3l
+                      ]
+                    ]
+0x555e65804703   6c3  488b45c8             REX.W movq rax,[rbp-0x38]
+                  ]
+                  [ 8a 0d             Jump [13]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804707   6c7  4989e2               REX.W movq r10,rsp
+0x555e6580470a   6ca  4983c240             REX.W addq r10,0x40
+0x555e6580470e   6ce  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804711   6d1  740d                 jz 0x555e65804720  <+0x6e0>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804713   6d3  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804718   6d8  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580471f   6df  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e65804720   6e0  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804724   6e4  41f6c001             testb r8,0x1
+0x555e65804728   6e8  0f8424000000         jz 0x555e65804752  <+0x712>
+                      [ AssertNotSmi
+0x555e6580472e   6ee  41f6c001             testb r8,0x1
+0x555e65804732   6f2  750d                 jnz 0x555e65804741  <+0x701>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804734   6f4  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804739   6f9  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804740   700  cc                   int3l
+                        ]
+                      ]
+0x555e65804741   701  458b48ff             movl r9,[r8-0x1]
+0x555e65804745   705  4181f91d030000       cmpl r9,0x31d
+0x555e6580474c   70c  0f840d000000         jz 0x555e6580475f  <+0x71f>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804752   712  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804757   717  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e6580475e   71e  cc                   int3l
+                      ]
+                    ]
+0x555e6580475f   71f  e90d020000           jmp 0x555e65804971  <+0x931>
+                  ]
+                  [ 13 05             LdaConstant [5]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804764   724  4989e2               REX.W movq r10,rsp
+0x555e65804767   727  4983c240             REX.W addq r10,0x40
+0x555e6580476b   72b  4c3bd5               REX.W cmpq r10,rbp
+0x555e6580476e   72e  740d                 jz 0x555e6580477d  <+0x73d>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804770   730  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804775   735  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580477c   73c  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e6580477d   73d  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804781   741  41f6c001             testb r8,0x1
+0x555e65804785   745  0f8424000000         jz 0x555e658047af  <+0x76f>
+                      [ AssertNotSmi
+0x555e6580478b   74b  41f6c001             testb r8,0x1
+0x555e6580478f   74f  750d                 jnz 0x555e6580479e  <+0x75e>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804791   751  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804796   756  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580479d   75d  cc                   int3l
+                        ]
+                      ]
+0x555e6580479e   75e  458b48ff             movl r9,[r8-0x1]
+0x555e658047a2   762  4181f91d030000       cmpl r9,0x31d
+0x555e658047a9   769  0f840d000000         jz 0x555e658047bc  <+0x77c>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658047af   76f  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658047b4   774  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658047bb   77b  cc                   int3l
+                      ]
+                    ]
+0x555e658047bc   77c  48b871ac0d00fe300000 REX.W movq rax,0x30fe000dac71    ;; object: 0x30fe000dac71 <String[6]: #testwo>
+                  ]
+                  [ c3                Star1
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658047c6   786  4989e2               REX.W movq r10,rsp
+0x555e658047c9   789  4983c240             REX.W addq r10,0x40
+0x555e658047cd   78d  4c3bd5               REX.W cmpq r10,rbp
+0x555e658047d0   790  740d                 jz 0x555e658047df  <+0x79f>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658047d2   792  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658047d7   797  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658047de   79e  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658047df   79f  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658047e3   7a3  41f6c001             testb r8,0x1
+0x555e658047e7   7a7  0f8424000000         jz 0x555e65804811  <+0x7d1>
+                      [ AssertNotSmi
+0x555e658047ed   7ad  41f6c001             testb r8,0x1
+0x555e658047f1   7b1  750d                 jnz 0x555e65804800  <+0x7c0>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658047f3   7b3  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658047f8   7b8  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658047ff   7bf  cc                   int3l
+                        ]
+                      ]
+0x555e65804800   7c0  458b48ff             movl r9,[r8-0x1]
+0x555e65804804   7c4  4181f91d030000       cmpl r9,0x31d
+0x555e6580480b   7cb  0f840d000000         jz 0x555e6580481e  <+0x7de>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804811   7d1  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804816   7d6  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e6580481d   7dd  cc                   int3l
+                      ]
+                    ]
+                    [ EnsureAccumulatorPreservedScope
+0x555e6580481e   7de  50                   push rax
+0x555e6580481f   7df  488945c8             REX.W movq [rbp-0x38],rax
+0x555e65804823   7e3  4158                 pop r8
+0x555e65804825   7e5  443bc0               cmpl r8,rax
+0x555e65804828   7e8  740d                 jz 0x555e65804837  <+0x7f7>
+                      [ Abort
+                  Abort message: 
+                  Accumulator clobbered
+0x555e6580482a   7ea  ba08000000           movl rdx,0x8
+                        [ Frame: NO_FRAME_TYPE
+0x555e6580482f   7ef  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804836   7f6  cc                   int3l
+                      ]
+                    ]
+                  ]
+                  [ 23 02 00          StaGlobal [2], [0]
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804837   7f7  4989e2               REX.W movq r10,rsp
+0x555e6580483a   7fa  4983c240             REX.W addq r10,0x40
+0x555e6580483e   7fe  4c3bd5               REX.W cmpq r10,rbp
+0x555e65804841   801  740d                 jz 0x555e65804850  <+0x810>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804843   803  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804848   808  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580484f   80f  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e65804850   810  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804854   814  41f6c001             testb r8,0x1
+0x555e65804858   818  0f8424000000         jz 0x555e65804882  <+0x842>
+                      [ AssertNotSmi
+0x555e6580485e   81e  41f6c001             testb r8,0x1
+0x555e65804862   822  750d                 jnz 0x555e65804871  <+0x831>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804864   824  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804869   829  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804870   830  cc                   int3l
+                        ]
+                      ]
+0x555e65804871   831  458b48ff             movl r9,[r8-0x1]
+0x555e65804875   835  4181f91d030000       cmpl r9,0x31d
+0x555e6580487c   83c  0f840d000000         jz 0x555e6580488f  <+0x84f>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804882   842  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804887   847  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e6580488e   84e  cc                   int3l
+                      ]
+                    ]
+                    [ CallBuiltin
+0x555e6580488f   84f  48b9752b0000fe300000 REX.W movq rcx,0x30fe00002b75    ;; object: 0x30fe00002b75 <String[1]: #s>
+0x555e65804899   859  33ff                 xorl rdi,rdi
+                      [ Inlined  Trampoline for call to StoreGlobalICBaseline
+0x555e6580489b   85b  e8e0b221a0           call 0x555e05a1fb80  (StoreGlobalICBaseline)    ;; near builtin entry
+                      ]
+                    ]
+                  ]
+                  [ 19 f9 fa          Mov r1, r0
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658048a0   860  4989e2               REX.W movq r10,rsp
+0x555e658048a3   863  4983c240             REX.W addq r10,0x40
+0x555e658048a7   867  4c3bd5               REX.W cmpq r10,rbp
+0x555e658048aa   86a  740d                 jz 0x555e658048b9  <+0x879>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658048ac   86c  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658048b1   871  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658048b8   878  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658048b9   879  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658048bd   87d  41f6c001             testb r8,0x1
+0x555e658048c1   881  0f8424000000         jz 0x555e658048eb  <+0x8ab>
+                      [ AssertNotSmi
+0x555e658048c7   887  41f6c001             testb r8,0x1
+0x555e658048cb   88b  750d                 jnz 0x555e658048da  <+0x89a>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658048cd   88d  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658048d2   892  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658048d9   899  cc                   int3l
+                        ]
+                      ]
+0x555e658048da   89a  458b48ff             movl r9,[r8-0x1]
+0x555e658048de   89e  4181f91d030000       cmpl r9,0x31d
+0x555e658048e5   8a5  0f840d000000         jz 0x555e658048f8  <+0x8b8>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658048eb   8ab  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658048f0   8b0  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658048f7   8b7  cc                   int3l
+                      ]
+                    ]
+                    [ EnsureAccumulatorPreservedScope
+0x555e658048f8   8b8  50                   push rax
+0x555e658048f9   8b9  4c8b45c8             REX.W movq r8,[rbp-0x38]
+0x555e658048fd   8bd  4c8945d0             REX.W movq [rbp-0x30],r8
+0x555e65804901   8c1  4158                 pop r8
+0x555e65804903   8c3  443bc0               cmpl r8,rax
+0x555e65804906   8c6  740d                 jz 0x555e65804915  <+0x8d5>
+                      [ Abort
+                  Abort message: 
+                  Accumulator clobbered
+0x555e65804908   8c8  ba08000000           movl rdx,0x8
+                        [ Frame: NO_FRAME_TYPE
+0x555e6580490d   8cd  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804914   8d4  cc                   int3l
+                      ]
+                    ]
+                  ]
+                  [ 0b f9             Ldar r1
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804915   8d5  4989e2               REX.W movq r10,rsp
+0x555e65804918   8d8  4983c240             REX.W addq r10,0x40
+0x555e6580491c   8dc  4c3bd5               REX.W cmpq r10,rbp
+0x555e6580491f   8df  740d                 jz 0x555e6580492e  <+0x8ee>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e65804921   8e1  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804926   8e6  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580492d   8ed  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e6580492e   8ee  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e65804932   8f2  41f6c001             testb r8,0x1
+0x555e65804936   8f6  0f8424000000         jz 0x555e65804960  <+0x920>
+                      [ AssertNotSmi
+0x555e6580493c   8fc  41f6c001             testb r8,0x1
+0x555e65804940   900  750d                 jnz 0x555e6580494f  <+0x90f>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e65804942   902  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804947   907  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e6580494e   90e  cc                   int3l
+                        ]
+                      ]
+0x555e6580494f   90f  458b48ff             movl r9,[r8-0x1]
+0x555e65804953   913  4181f91d030000       cmpl r9,0x31d
+0x555e6580495a   91a  0f840d000000         jz 0x555e6580496d  <+0x92d>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804960   920  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804965   925  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e6580496c   92c  cc                   int3l
+                      ]
+                    ]
+0x555e6580496d   92d  488b45c8             REX.W movq rax,[rbp-0x38]
+                  ]
+                  [ 0b fa             Ldar r0
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e65804971   931  4989e2               REX.W movq r10,rsp
+0x555e65804974   934  4983c240             REX.W addq r10,0x40
+0x555e65804978   938  4c3bd5               REX.W cmpq r10,rbp
+0x555e6580497b   93b  740d                 jz 0x555e6580498a  <+0x94a>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e6580497d   93d  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e65804982   942  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804989   949  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e6580498a   94a  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e6580498e   94e  41f6c001             testb r8,0x1
+0x555e65804992   952  0f8424000000         jz 0x555e658049bc  <+0x97c>
+                      [ AssertNotSmi
+0x555e65804998   958  41f6c001             testb r8,0x1
+0x555e6580499c   95c  750d                 jnz 0x555e658049ab  <+0x96b>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e6580499e   95e  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658049a3   963  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658049aa   96a  cc                   int3l
+                        ]
+                      ]
+0x555e658049ab   96b  458b48ff             movl r9,[r8-0x1]
+0x555e658049af   96f  4181f91d030000       cmpl r9,0x31d
+0x555e658049b6   976  0f840d000000         jz 0x555e658049c9  <+0x989>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e658049bc   97c  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e658049c1   981  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e658049c8   988  cc                   int3l
+                      ]
+                    ]
+0x555e658049c9   989  488b45d0             REX.W movq rax,[rbp-0x30]
+                  ]
+                  [ a9                Return
+                    [ VerifyFrame
+                   -- Verify frame size
+                      [ VerifyFrameSize
+0x555e658049cd   98d  4989e2               REX.W movq r10,rsp
+0x555e658049d0   990  4983c240             REX.W addq r10,0x40
+0x555e658049d4   994  4c3bd5               REX.W cmpq r10,rbp
+0x555e658049d7   997  740d                 jz 0x555e658049e6  <+0x9a6>
+                        [ Abort
+                  Abort message: 
+                  The stack pointer is not the expected value
+0x555e658049d9   999  ba74000000           movl rdx,0x74
+                          [ Frame: NO_FRAME_TYPE
+0x555e658049de   99e  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e658049e5   9a5  cc                   int3l
+                        ]
+                      ]
+                   -- Verify feedback vector
+0x555e658049e6   9a6  4c8b45d8             REX.W movq r8,[rbp-0x28]
+0x555e658049ea   9aa  41f6c001             testb r8,0x1
+0x555e658049ee   9ae  0f8424000000         jz 0x555e65804a18  <+0x9d8>
+                      [ AssertNotSmi
+0x555e658049f4   9b4  41f6c001             testb r8,0x1
+0x555e658049f8   9b8  750d                 jnz 0x555e65804a07  <+0x9c7>
+                        [ Abort
+                  Abort message: 
+                  Operand is a smi
+0x555e658049fa   9ba  ba30000000           movl rdx,0x30
+                          [ Frame: NO_FRAME_TYPE
+0x555e658049ff   9bf  41ff95b04f0000       call [r13+0x4fb0]
+                          ]
+0x555e65804a06   9c6  cc                   int3l
+                        ]
+                      ]
+0x555e65804a07   9c7  458b48ff             movl r9,[r8-0x1]
+0x555e65804a0b   9cb  4181f91d030000       cmpl r9,0x31d
+0x555e65804a12   9d2  0f840d000000         jz 0x555e65804a25  <+0x9e5>
+                      [ Abort
+                  Abort message: 
+                  Expected feedback vector
+0x555e65804a18   9d8  ba12000000           movl rdx,0x12
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804a1d   9dd  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804a24   9e4  cc                   int3l
+                      ]
+                    ]
+                    [ EnsureAccumulatorPreservedScope
+0x555e65804a25   9e5  50                   push rax
+                      [ Return
+0x555e65804a26   9e6  bb01000000           movl rbx,0x1
+0x555e65804a2b   9eb  48c7c1caffffff       REX.W movq rcx,0xffffffca
+                        [ Inlined  Trampoline for tail call to BaselineLeaveFrame
+0x555e65804a32   9f2  e9090d04a0           jmp 0x555e05845740  (BaselineLeaveFrame)    ;; near builtin entry
+                        ]
+                      ]
+0x555e65804a37   9f7  4158                 pop r8
+0x555e65804a39   9f9  443bc0               cmpl r8,rax
+0x555e65804a3c   9fc  740d                 jz 0x555e65804a4b  <+0xa0b>
+                      [ Abort
+                  Abort message: 
+                  Accumulator clobbered
+0x555e65804a3e   9fe  ba08000000           movl rdx,0x8
+                        [ Frame: NO_FRAME_TYPE
+0x555e65804a43   a03  41ff95b04f0000       call [r13+0x4fb0]
+                        ]
+0x555e65804a4a   a0a  cc                   int3l
+                      ]
+                    ]
+                  ]
+0x555e65804a4b   a0b  cc                   int3l
+
+
+RelocInfo (size = 52)
+0x555e65804047  full embedded object  (0x30fe000dad05 <BytecodeArray[54]>)
+0x555e65804050  near builtin entry
+0x555e65804055  compressed embedded object  (0x30fe00000251 <undefined> compressed)
+0x555e658040c5  full embedded object  (0x30fe000dacd9 <FixedArray[1]>)
+0x555e65804222  near builtin entry
+0x555e65804280  full embedded object  (0x30fe000dac35 <String[5]: #world>)
+0x555e658042e2  full embedded object  (0x30fe00002b75 <String[1]: #s>)
+0x555e658042ed  near builtin entry
+0x555e6580434b  full embedded object  (0x30fe00002b75 <String[1]: #s>)
+0x555e65804359  near builtin entry
+0x555e65804428  full embedded object  (0x30fe000dac49 <String[5]: #hello>)
+0x555e65804492  near builtin entry
+0x555e65804554  full embedded object  (0x30fe000dac5d <String[7]: #testone>)
+0x555e65804627  full embedded object  (0x30fe00002b75 <String[1]: #s>)
+0x555e65804632  near builtin entry
+0x555e658047be  full embedded object  (0x30fe000dac71 <String[6]: #testwo>)
+0x555e65804891  full embedded object  (0x30fe00002b75 <String[1]: #s>)
+0x555e6580489c  near builtin entry
+0x555e65804a33  near builtin entry
+
